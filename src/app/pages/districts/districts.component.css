@@ -1,0 +1,161 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #0080c0 0%, #004080 100%); 
+    animation: oceanAnimation 10s linear infinite alternate-reverse;
+}
+
+@keyframes oceanAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #1a5276; /* Ocean blue color */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.card:hover {
+    opacity: 0.9;
+}
+
+.card:hover .card-image {
+    transform: scale(1.2);
+}
+
+
+.card-image {
+    height: 60%;
+    background-image: url('https://insideclimatenews.org/wp-content/uploads/2023/01/ocean_brian-bielmann-afp-getty-scaled.jpg'); 
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.card-text {
+    padding: 20px;
+    text-align: center;
+    color: #ecf0f1;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card-text {
+    transform: translate(0, -10px);
+}
+
+h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    z-index: 1;
+}
+
+
+.card:hover .card-text {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-image {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+        
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+}
+
+
+
+html, 
+body, 
+.carousel, 
+.carousel-inner, 
+.carousel-inner .item {
+    height: 600px;
+    width: 1600px;
+}
+
+.item:nth-child(1) {
+    background: #74C390;
+}
+
+.item:nth-child(2) {
+    background: #51BCE8;
+}
+
+.item:nth-child(3) {
+    background: #E46653;
+}
